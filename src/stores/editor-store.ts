@@ -34,6 +34,7 @@ interface EditorState {
   setOffset: (offsetX: number, offsetY: number) => void;
   setFillMode: (mode: FillMode) => void;
   setExportStatus: (status: ExportStatus) => void;
+  fitCenter: () => void;
   reset: () => void;
 }
 
@@ -80,6 +81,8 @@ export const useEditorStore = create<EditorState>((set) => ({
       exportStatus,
       isExporting: exportStatus === "exporting",
     }),
+
+  fitCenter: () => set({ scale: 1.0, offsetX: 0, offsetY: 0 }),
 
   reset: () => set(INITIAL_STATE),
 }));

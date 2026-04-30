@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, RotateCcw } from "lucide-react";
+import { Download, Maximize, RotateCcw } from "lucide-react";
 import { useEditorStore } from "@/stores/editor-store";
 import { useImageExport } from "@/hooks/use-image-export";
 import { FillModeToggle } from "./FillModeToggle";
@@ -10,6 +10,7 @@ export function Controls() {
   const setScale = useEditorStore((s) => s.setScale);
   const exportStatus = useEditorStore((s) => s.exportStatus);
   const isExporting = useEditorStore((s) => s.isExporting);
+  const fitCenter = useEditorStore((s) => s.fitCenter);
   const reset = useEditorStore((s) => s.reset);
   const { exportImage } = useImageExport();
 
@@ -33,6 +34,14 @@ export function Controls() {
         <span className="nothing-label w-12 shrink-0 text-right text-nothing-secondary">
           {percentage}%
         </span>
+        <button
+          onClick={fitCenter}
+          className="flex shrink-0 items-center justify-center rounded-full border border-nothing-border p-2 text-nothing-secondary transition-colors hover:border-nothing-text hover:text-nothing-text"
+          aria-label="Fit and center image"
+          title="Fit & center"
+        >
+          <Maximize size={14} />
+        </button>
       </div>
 
       {/* Fill mode + status */}
