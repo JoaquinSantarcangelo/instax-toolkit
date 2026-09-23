@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   description:
     "Fit any image into a square canvas for Fujifilm Instax Square prints",
   manifest: "/manifest.json",
+  icons: { icon: [{ url: "/logo.svg", type: "image/svg+xml", sizes: "any" }] },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
